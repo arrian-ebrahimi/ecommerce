@@ -1,0 +1,12 @@
+<h1>Editing Entries</h1>
+
+<%= form_for @code, url: {action: "update"}, method: :put do |f| %>
+  <%= f.text_field :kind %>
+  <%= f.text_field :language %>
+  <%= f.text_area :purpose, size: "60x12" %>
+  <%= f.text_area :content, size: "60x12" %>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
