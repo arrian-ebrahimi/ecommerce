@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<h1>Code Land</h1>
+<h2>
+  <% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+<% end %>
+</h2>
 <%= yield %>
-
+<p>
+  2016, Arrian Ebrahimi
+</p>
 </body>
 </html>

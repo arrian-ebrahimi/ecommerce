@@ -1,3 +1,4 @@
+<h1>Welcome <%= @name %></h1>
 <h1>FAQ</h1>
 <table border = 3>
   <tr>
@@ -16,11 +17,13 @@
         <td><%= link_to "Update", edit_code_path(result)%></td>
       </tr>
   <% end %>
-  <h2>Number of code inputs:
-    <%=@count%>
-  </h2>
-  <h3>
-    <%= link_to "Add Code", new_code_path%>
-    <%= link_to "Delete All", code_path(@result), method: :delete%>
-  </h3>
+<h2>Number of code inputs:
+  <%=@count%>
+</h2>
+<h3>
+  <%= link_to "Add Code", new_code_path%>
+  <%= link_to "Delete All", code_path(@result), method: :delete%>
+</h3>
 </table>
+
+<%= link_to "Edit Profile", edit_user_registration_path(@user)%>

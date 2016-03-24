@@ -2,6 +2,7 @@ class CodeController < ApplicationController
   def index
     @result = Code.all
     @count = Code.count
+    @name = current_user.name
   end
 
   def new
