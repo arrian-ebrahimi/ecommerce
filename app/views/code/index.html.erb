@@ -1,5 +1,5 @@
 <h1>Welcome <%= @name %></h1>
-<h1>FAQ</h1>
+<h2>Code Library</h2>
 <table border = 3>
   <tr>
     <th>Type</th>
@@ -14,12 +14,12 @@
         <td><%=result.language%></td>
         <td><%=result.purpose%></td>
         <td><%=result.content%></td>
-        <td><%= link_to "Update", edit_code_path(result)%></td>
+        <td><%= link_to "Edit", edit_code_path(result)%></td>
       </tr>
   <% end %>
-<h2>Number of code inputs:
+<h3>Number of code inputs:
   <%=@count%>
-</h2>
+</h3>
 <h3>
   <%= link_to "Add Code", new_code_path%>
   <%= link_to "Delete All", code_path(@result), method: :delete%>
