@@ -36,9 +36,22 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-<%= yield %>
-<p>
-  2016, Arrian Ebrahimi
-</p>
+  <%= yield %>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted" align="center">2016, Arrian Ebrahimi</p>
+      </div>
+  </footer>
 </body>
 </html>
+
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    background: #F3F3F3;
+    width: 100%;
+  }
+</style>
