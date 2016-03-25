@@ -1,12 +1,11 @@
 <h1>Welcome <%= @name %></h1>
 <h2>Code Library</h2>
-<table border = 3>
+<table class="table table-bordered table-hover table-condensed">
   <tr>
     <th>Type</th>
     <th>Language</th>
     <th>Purpose</th>
     <th>Content</th>
-    <th><th>
   </tr>
   <%@result.each do |result|%>
       <tr>
@@ -14,7 +13,7 @@
         <td><%=result.language%></td>
         <td><%=result.purpose%></td>
         <td><%=result.content%></td>
-        <td><%= link_to "Edit", edit_code_path(result)%></td>
+        <td><a class="btn btn-default" href="#" role="button">Edit <%= link_to "Edit", edit_code_path(result)%></a></td>
       </tr>
   <% end %>
 <h3>Number of code inputs:
