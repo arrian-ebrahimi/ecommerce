@@ -9,15 +9,19 @@ class CodeController < ApplicationController
     @code = Code.new
     @kinds = ["Line", "Block", "Full Program"]
     @languages = ["Java", "JavaScript", "Ruby", "Pascal", "Swift", "HTML", "CSS"]
+
   end
 
   def create
-    Code.create(code_params)
+    @code = Code.create(code_params)
+    @code.user = current_user
+    @code.save
     redirect_to code_index_path
   end
 
   def show
     @code = Code.find(params[:id])
+    @user = @code.user
   end
 
   def destroy #I know this is working, I just forgot what to do when it closes
