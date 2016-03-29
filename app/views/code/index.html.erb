@@ -1,26 +1,35 @@
-<h1>Welcome <%= @name %></h1>
-<h2>Code Library</h2>
-<table class="table table-bordered table-hover table-condensed">
-  <tr>
-    <th>Type</th>
-    <th>Language</th>
-    <th>Purpose</th>
-    <th>Content</th>
-  </tr>
-  <%@result.each do |result|%>
-      <tr>
-        <td><%=result.kind%></td>
-        <td><%=result.language%></td>
-        <td><%=result.purpose%></td>
-        <td><%=result.content%></td>
-        <td><a class="btn btn-default" href="#" role="button">Edit <%= link_to "Edit", edit_code_path(result)%></a></td>
-      </tr>
-  <% end %>
-<h3>Number of code inputs:
-  <%=@count%>
-</h3>
-<h3>
-  <%= link_to "Add Code", new_code_path%>
-  <%= link_to "Delete All", code_path(@result), method: :delete%>
-</h3>
-</table>
+<div class="col-md-8 col-md-offset-2">
+  <h1>Welcome <%= @name %>!</h1>
+  <h2>Code Library</h2>
+  <table class="table table-bordered table-hover table-condensed">
+    <div class="row">
+      <thead class="thead-inverse">
+        <tr class="col-md-10 col-md-offset-1">
+          <th class="col-md-3">Type</th>
+          <th class="col-md-3">Language</th>
+          <th class="col-md-3">Purpose</th>
+          <th class="col-md-3">Content</th>
+          <th class="col-md-3"></th>
+        </tr>
+      </thead>
+    </div>
+    <div class="row">
+      <%@result.each do |result|%>
+        <tr class="col-md-10 col-md-offset-1">
+          <td class="col-md-3"><%=result.kind%></td>
+          <td class="col-md-3"><%=result.language%></td>
+          <td class="col-md-3"><%=result.purpose%></td>
+          <td class="col-md-3"><%= link_to "Show Code", code_path(result)%></td>
+          <td class="col-md-3"><button class="btn btn-default"><%= link_to "Edit", edit_code_path(result)%></button></td>
+        </tr>
+      <% end %>
+    </div>
+  <h3>Number of code inputs:
+    <%=@count%>
+  </h3>
+  <h3>
+    <button class="btn btn-default"><%= link_to "Add Code", new_code_path%></button>
+    <button class="btn btn-default"><%= link_to "Delete All", code_path(@result), method: :delete%></button>
+  </h3>
+  </table>
+</div>

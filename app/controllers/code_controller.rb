@@ -7,11 +7,17 @@ class CodeController < ApplicationController
 
   def new
     @code = Code.new
+    @kinds = ["Line", "Block", "Full Program"]
+    @languages = ["Java", "JavaScript", "Ruby", "Pascal", "Swift", "HTML", "CSS"]
   end
 
   def create
     Code.create(code_params)
     redirect_to code_index_path
+  end
+
+  def show
+    @code = Code.find(params[:id])
   end
 
   def destroy #I know this is working, I just forgot what to do when it closes
@@ -22,6 +28,8 @@ class CodeController < ApplicationController
 
   def edit
     @code = Code.find(params[:id])
+    @kinds = ["Line", "Block", "Full Program"]
+    @languages = ["Java", "JavaScript", "Ruby", "Pascal", "Swift", "HTML", "CSS"]
   end
 
   def update
