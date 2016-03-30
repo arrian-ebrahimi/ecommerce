@@ -16,7 +16,7 @@
           <a class="navbar-brand" href="#">
             <%= image_tag("code.png", size: "30x30") %>
           </a>
-          <a class="navbar-brand" href="#">Codes</a>
+          <%= link_to "Codes", code_index_path, :class => "navbar-brand"%>
           <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
               <li>
