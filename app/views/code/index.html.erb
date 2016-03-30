@@ -19,6 +19,7 @@
           <p><strong>Language:</strong> <%=result.language%></p>
           <p><strong>Purpose:</strong> <%=result.purpose%></p>
           <p><%= link_to "Show Code", code_path(result)%></p>
+          <button class="btn btn-warning-bg"><%= link_to "Edit", edit_code_path(result)%></button>
         </div>
       </div>
     </div>
