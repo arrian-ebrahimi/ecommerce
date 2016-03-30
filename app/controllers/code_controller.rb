@@ -3,6 +3,7 @@ class CodeController < ApplicationController
     @result = Code.all
     @count = Code.count
     @name = current_user.name
+    @counter = 1
   end
 
   def new

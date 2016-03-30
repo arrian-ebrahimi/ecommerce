@@ -13,7 +13,7 @@
   <%@result.each do |result|%>
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading">Code #<%=result.id%></div>
+        <div class="panel-heading">Code #<%=@counter%></div>
         <div class="panel-body">
           <p><strong>Type:</strong> <%=result.kind%></p>
           <p><strong>Language:</strong> <%=result.language%></p>
@@ -22,5 +22,6 @@
         </div>
       </div>
     </div>
+    <% @counter = @counter + 1 %>
   <% end %>
 </div>
