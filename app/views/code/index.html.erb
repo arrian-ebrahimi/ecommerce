@@ -1,29 +1,7 @@
+
 <div class="col-md-8 col-md-offset-2">
   <h1>Welcome <%= @name %>!</h1>
   <h2>Code Library</h2>
-  <table class="table table-bordered table-hover table-condensed">
-    <div class="row">
-      <thead class="thead-inverse">
-        <tr class="col-md-15 col-md-offset-0">
-          <th class="col-md-2">Type</th>
-          <th class="col-md-2">Language</th>
-          <th class="col-md-2">Purpose</th>
-          <th class="col-md-2">Content</th>
-          <th class="col-md-2"></th>
-        </tr>
-      </thead>
-    </div>
-    <div class="row">
-      <%@result.each do |result|%>
-        <tr class="col-md-15 col-md-offset-1">
-          <td class="col-md-2"><%=result.kind%></td>
-          <td class="col-md-2"><%=result.language%></td>
-          <td class="col-md-2"><%=result.purpose%></td>
-          <td class="col-md-2"><%= link_to "Show Code", code_path(result)%></td>
-          <td class="col-md-2"><button class="btn btn-default"><%= link_to "Edit", edit_code_path(result)%></button></td>
-        </tr>
-      <% end %>
-    </div>
   <h3>Number of code inputs:
     <%=@count%>
   </h3>
@@ -31,5 +9,18 @@
     <button class="btn btn-default"><%= link_to "Add Code", new_code_path%></button>
     <button class="btn btn-default"><%= link_to "Delete All", code_path(@result), method: :delete%></button>
   </h3>
-  </table>
+
+  <%@result.each do |result|%>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">Code #<%=result.id%></div>
+        <div class="panel-body">
+          <p><strong>Type:</strong> <%=result.kind%></p>
+          <p><strong>Language:</strong> <%=result.language%></p>
+          <p><strong>Purpose:</strong> <%=result.purpose%></p>
+          <p><%= link_to "Show Code", code_path(result)%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
