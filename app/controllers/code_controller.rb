@@ -1,16 +1,16 @@
 class CodeController < ApplicationController
   def index
-    @result = Code.all
+    @resultOrig = Code.all
+    @result = Code.all.paginate(:page => params[:page], :per_page => 8)
     @count = Code.count
     @name = current_user.name
-    @counter = 1
+    @counter = 1 + (@result.current_page-1)*8
   end
 
   def new
     @code = Code.new
     @kinds = ["Line", "Block", "Full Program"]
     @languages = ["Java", "JavaScript", "Ruby", "Pascal", "Swift", "HTML", "CSS"]
-
   end
 
   def create
@@ -25,7 +25,7 @@ class CodeController < ApplicationController
     @user = @code.user
   end
 
-  def destroy #I know this is working, I just forgot what to do when it closes
+  def destroy
     @result = Code.all
     @result.destroy_all
     redirect_to code_index_path

@@ -11,6 +11,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Styling Bootstrap Devise
 gem 'devise-bootstrap-views'
 gem 'devise'
+gem 'will_paginate', '~> 3.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
